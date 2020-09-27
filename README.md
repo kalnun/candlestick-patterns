@@ -40,10 +40,19 @@
 | 2019-12-29 00:00:00 |  7315.36 |  7528.45 |  7288    |  7388.24 |
 
 ### Code
+
+```python
+from candlestick import candlestick
+df = candlestick.get_all_vectors(df)
+```
+
+or
+
 ```python
 from candlestick import candlestick
 df = candlestick.inverted_hammer(df, target='result')
 ```
+
 ### Result
 
 | T                   | result            |     open |     high |      low |    close |

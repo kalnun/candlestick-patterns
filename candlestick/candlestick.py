@@ -199,7 +199,7 @@ def get_all(candles_df,
                    ohlc=__default_ohlc,
                    is_reversed=False,
                    target=None):
-    candles_df['bullish_hanging_man'] = bullish_hanging_man(candles_df, ohlc, is_reversed, target)
+    #candles_df['bullish_hanging_man'] = bullish_hanging_man(candles_df, ohlc, is_reversed, target)
     candles_df['hanging_man'] = hanging_man(candles_df, ohlc, is_reversed, target)
     candles_df['bearish_hamari'] = bearish_harami(candles_df, ohlc, is_reversed, target)
     candles_df['bullish_harami'] = bullish_harami(candles_df, ohlc, is_reversed, target)

@@ -209,7 +209,7 @@ def get_all(candles_df,
     candles_df['doji_star'] = doji_star(candles_df, ohlc, is_reversed, target)
     candles_df['dragonfly_doji'] = dragonfly_doji(candles_df, ohlc, is_reversed, target)
     candles_df['bearish_engulfing'] = bearish_engulfing(candles_df, ohlc, is_reversed, target)
-    candles_df['bullish_engulfing'] = bullish engulfing(candles_df, ohlc, is_reversed, target)
+    candles_df['bullish_engulfing'] = bullish_engulfing(candles_df, ohlc, is_reversed, target)
     candles_df['hammer'] = hammer(candles_df, ohlc, is_reversed, target)
     candles_df['inverted_hammer'] = inverted_hammer(candles_df, ohlc, is_reversed, target)
     candles_df['morning_star_doji'] = morning_star_doji(candles_df, ohlc, is_reversed, target)

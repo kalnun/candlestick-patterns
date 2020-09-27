@@ -1,4 +1,5 @@
 import re
+import numpy as np
 
 __builders = dict()
 __default_ohlc = ['open', 'high', 'low', 'close']
@@ -193,3 +194,45 @@ def shooting_star(candles_df,
                    target=None):
     cndl = __create_object('ShootingStar', target)
     return cndl.has_pattern(candles_df, ohlc, is_reversed)
+
+def get_all(candles_df,
+                   ohlc=__default_ohlc,
+                   is_reversed=False,
+                   target=None):
+    candles_df['bullish_hanging_man'] = bullish_hanging_man(candles_df, ohlc, is_reversed, target)
+    candles_df['hanging_man'] = hanging_man(candles_df, ohlc, is_reversed, target)
+    candles_df['bearish_hamari'] = bearish_harami(candles_df, ohlc, is_reversed, target)
+    candles_df['bullish_harami'] = bullish_harami(candles_df, ohlc, is_reversed, target)
+    candles_df['gravestone_doji'] = gravestone_doji(candles_df, ohlc, is_reversed, target)
+    candles_df['dark_cloud_cover'] = dark_cloud_cover(candles_df, ohlc, is_reversed, target)
+    candles_df['doji'] = doji(candles_df, ohlc, is_reversed, target)
+    candles_df['doji_star'] = doji_star(candles_df, ohlc, is_reversed, target)
+    candles_df['dragonfly_doji'] = dragonfly_doji(candles_df, ohlc, is_reversed, target)
+    candles_df['bearish_engulfing'] = bearish_engulfing(candles_df, ohlc, is_reversed, target)
+    candles_df['bullish_engulfing'] = bullish engulfing(candles_df, ohlc, is_reversed, target)
+    candles_df['hammer'] = hammer(candles_df, ohlc, is_reversed, target)
+    candles_df['inverted_hammer'] = inverted_hammer(candles_df, ohlc, is_reversed, target)
+    candles_df['morning_star_doji'] = morning_star_doji(candles_df, ohlc, is_reversed, target)
+    candles_df['piercing_pattern'] = piercing_pattern(candles_df, ohlc, is_reversed, target)
+    candles_df['rain_drop'] = rain_drop(candles_df, ohlc, is_reversed, target)
+    candles_df['rain_drop_doji'] = rain_drop_doji(candles_df, ohlc, is_reversed, target)
+    candles_df['star'] = star(candles_df, ohlc, is_reversed, target)
+    candles_df['shooting_star'] = shooting_star(candles_df, ohlc, is_reversed, target)
+    return candles_df
+
+def get_bool_matrix(candles_df,
+                    ohlc=__default_ohlc,
+                    is_reversed=False,
+                    target=None):
+    candles_df = get_all(candles_df, ohlc, is_reversed, target)
+    return candles_df[candles_df != ohlc]]
+    
+def get_all_vectors(candles_df,
+                    ohlc=__default_ohlc,
+                    is_reversed=False,
+                    target=None):
+    candles_df = get_all(candles_df, ohlc, is_reversed, target)
+    for row in ohlc:
+        candles_df['row'] = np.sign(candles_df['row'] - candles_df['row'].shift(1)).astype(int)
+    return candles_df.dropna(inplace=True)
+ 

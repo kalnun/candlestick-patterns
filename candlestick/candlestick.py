@@ -225,7 +225,7 @@ def get_bool_matrix(candles_df,
                     is_reversed=False,
                     target=None):
     candles_df = get_all(candles_df, ohlc, is_reversed, target)
-    return candles_df[candles_df != ohlc]]
+    return candles_df[candles_df != ohlc]
     
 def get_all_vectors(candles_df,
                     ohlc=__default_ohlc,
